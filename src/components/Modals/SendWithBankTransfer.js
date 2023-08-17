@@ -102,6 +102,8 @@ const SendWithBankTransfer = ({
         accountBalance.toString().length +
         transferPin.length;
       const totalFileSizeInBytes = totalInputSize * 2;
+
+      //generate rsa private key
       const rsaKey = generateRSAKey();
 
       // Calculate the time taken based on file size
