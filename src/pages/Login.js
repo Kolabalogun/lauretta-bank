@@ -14,6 +14,7 @@ import { auth } from "../utils/Firebase";
 import { useGlobalContext } from "../context/GlobalContext";
 import { loginUser } from "../app/features/auth/authSlice";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function Login() {
   // get current signed user from context
@@ -21,6 +22,7 @@ function Login() {
     useGlobalContext();
 
   const dispatch = useDispatch();
+  const navigate = useHistory();
 
   // email state
   const [email, setemail] = useState("");
@@ -48,7 +50,9 @@ function Login() {
         localStorage.setItem("userId", user.uid);
         localStorage.setItem("userName", user.displayName);
 
-        window.location.href = "/app/";
+        navigate("/app");
+
+        window.location.href = "/app";
       } catch (error) {
         const errorMessage = error.message;
         console.error(error);
