@@ -22,9 +22,6 @@ const Help = () => {
             staying informed about security measures, collaborating with
             cybersecurity experts, and regularly updating your online banking
             systems.
-            <br /> <br />
-            Feel free to tailor these descriptions to match the design and
-            functionality of your bank app's pages.
           </p>
         </CardBody>
       </Card>

@@ -41,21 +41,27 @@ const routes = [
     icon: "OutlineCogIcon",
     name: "Settings",
   },
-  {
-    path: "/app/transactions",
-    icon: "OutlineCogIcon",
-    name: "Transactions",
-  },
-  {
-    path: "/app/transaction-charts",
-    icon: "OutlineCogIcon",
-    name: "Chart",
-  },
-  {
-    path: "/app/transaction-tables",
-    icon: "OutlineCogIcon",
-    name: "Table",
-  },
+
+  // Admin Views
+
+  // {
+  //   path: "/app/transactions",
+  //   icon: "OutlineCogIcon",
+  //   name: "Transactions",
+  // },
+  // {
+  //   path: "/app/transaction-charts",
+  //   icon: "OutlineCogIcon",
+  //   name: "Chart",
+  // },
+  // {
+  //   path: "/app/transaction-tables",
+  //   icon: "OutlineCogIcon",
+  //   name: "Table",
+  // },
+
+  // Admin Views
+
   // {
   //   path: "/app/admin-users",
   //   icon: "PeopleIcon",

@@ -22,7 +22,6 @@ function Login() {
     useGlobalContext();
 
   const dispatch = useDispatch();
-  const navigate = useHistory();
 
   // email state
   const [email, setemail] = useState("");
@@ -49,8 +48,6 @@ function Login() {
 
         localStorage.setItem("userId", user.uid);
         localStorage.setItem("userName", user.displayName);
-
-        navigate("/app");
 
         window.location.href = "/app";
       } catch (error) {

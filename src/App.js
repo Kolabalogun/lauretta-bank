@@ -8,8 +8,6 @@ import {
 import AccessibleNavigationAnnouncer from "./components/AccessibleNavigationAnnouncer";
 
 import { useSelector } from "react-redux";
-import Protected from "./components/Auth/Protected";
-import UnAuthenticated from "./components/Auth/UnAuthenticated";
 
 const Layout = lazy(() => import("./containers/Layout"));
 const Login = lazy(() => import("./pages/Login"));
@@ -17,49 +15,35 @@ const CreateAccount = lazy(() => import("./pages/CreateAccount"));
 
 function App() {
   // get current user from redux
+  const currentUser = useSelector((state) => state.auth.currentUser);
 
   return (
     <>
       <Router>
         <AccessibleNavigationAnnouncer />
         <Switch>
-          <Route
-            path="/login"
-            element={
-              <UnAuthenticated>
-                <Login />
-              </UnAuthenticated>
-            }
-          />
+          <Route path="/login" component={Login} />
 
-          <Route
-            path="/create-account"
-            element={
-              <UnAuthenticated>
-                <CreateAccount />
-              </UnAuthenticated>
-            }
-          />
+          <Route path="/create-account" component={CreateAccount} />
+          {/* <Route path="/forgot-password" component={ForgotPassword} /> */}
 
           {/* Protected route */}
+          {currentUser ? (
+            <Route path="/app/" component={Layout} />
+          ) : (
+            <Route
+              path="/login"
+              element={() => {
+                window.location.href = "/login";
+                return null;
+              }}
+            />
+          )}
 
-          <Route
-            path="/app/"
-            element={
-              <Protected>
-                <Layout />
-              </Protected>
-            }
-          />
+          {/* If you have an index page, you can remothis Redirect */}
+          <Redirect exact from="/" to="/login" />
 
-          <Route
-            path="*"
-            element={
-              <UnAuthenticated>
-                <Login />
-              </UnAuthenticated>
-            }
-          />
+          <Route path="*" component={Login} />
         </Switch>
       </Router>
     </>
