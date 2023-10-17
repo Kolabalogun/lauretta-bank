@@ -498,7 +498,7 @@ const PageContents = () => {
             value={contactEmail}
             onChange={handleChange}
             className="mt-1"
-            placeholder="aisha@gmail.com"
+            placeholder="lauretta@gmail.com"
           />
         </Label>
         <Label className="mt-5">
